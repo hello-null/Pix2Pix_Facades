@@ -31,7 +31,7 @@ https://aistudio.baidu.com/datasetdetail/230639
 epoch生成的虚假图
 
 # Functions.py
-一些功能函数
+封装一些功能函数，只在datasets_Facades.py中使用了Functions.py中封装的函数
 
 # INFO.txt
 保存训练过程中的参数信息
