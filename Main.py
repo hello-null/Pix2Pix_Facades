@@ -38,6 +38,7 @@ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 if __name__ == '__main__':
 
+    # 初次训练使用netG.apply
     netG = GeneratorUNet(in_channels=3,out_channels=3).to(device)
     netG.load_state_dict(torch.load(r'F:\NeuralNetworkModel\Pix2Pix_Facades\RUN_1\G\dict_epoch_72.pth'))
     # netG.apply(weights_init)
@@ -52,6 +53,7 @@ if __name__ == '__main__':
     optimizerD = Adam(netD.parameters(), lr=LR, betas=(beta1, 0.999))
     optimizerG = Adam(netG.parameters(), lr=LR, betas=(beta1, 0.999))
 
+    # 73表示 epoch=73，初次训练需要改成1
     for epoch in range(73,NUM_EPOCHS+1):
         tm_start = time.time()
 
@@ -115,7 +117,7 @@ if __name__ == '__main__':
 
         # 保存虚假图像
         with torch.no_grad():
-            i=1
+            i=1 # i的作用是只保存前三组loader_test数据
             stake=None
             for image, annotation in loader_test:
                 fakes = netG(annotation.to(device)).detach().cpu()
