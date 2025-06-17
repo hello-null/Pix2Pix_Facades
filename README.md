@@ -18,6 +18,9 @@ Pix2Pix图像生成网络训练Facades数据集
             dict_epoch_120.pth
             dict_epoch_168.pth
 
+# 数据集请见
+https://aistudio.baidu.com/datasetdetail/230639
+
 # D/
 存放鉴别器权重
 
