@@ -1,7 +1,7 @@
 # Pix2Pix_Facades
 Pix2Pix图像生成网络训练Facades数据集
 
-# 文件结构
+# 文件结构  乱码的话该成Code模式观看
 └─RUN_1
     │  INFO.txt
     │
