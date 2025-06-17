@@ -11,9 +11,9 @@ from Functions import resize_image_with_proportion
 
 ROOT=r'F:\datasets\Facades'
 MIN_SIZE=256
-BS=8
+BS=8 # batch size
 
-
+# 读取某个文件夹下所有.jpg图像的文件名保存在列表中，不包含后缀
 def get_jpg_files_glob(folder_path):
     """使用通配符匹配所有.jpg文件"""
     pattern = os.path.join(folder_path, "*.jpg")
@@ -30,13 +30,13 @@ tr=transforms.Compose([
 class FacadesDataset(Dataset):
     def __init__(self, root=ROOT, t1=tr, mode="train"):
         '''
-        :param root:
+        :param root:  真实图像和标注图像都是256*256像素，3通道
             F:\datasets\Facades
             |----------train/
             |       |--------A/
-            |              |-----xxx.jpg
+            |              |-----xxx.jpg   真实图像，建筑的原始图像，
             |       |--------B/
-            |              |-----xxx.jpg
+            |              |-----xxx.jpg    标注图像，不同颜色的矩形框
             |----------test/
             |       |--------A/
             |              |-----xxx.jpg
